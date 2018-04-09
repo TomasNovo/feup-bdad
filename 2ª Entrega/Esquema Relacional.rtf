@@ -1,0 +1,30 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Sala(\ul idSala\ulnone , nome)\
+Mesa(\ul idMesa\ulnone , numero, lugares)\
+Reserva(\ul idReserva\ulnone , data/hora, numero pessoas)\
+Pessoa(\ul idPessoa\ulnone , nome, NIF, nacionalidade)\
+Cliente(\ul idCliente->Pessoa\ulnone , data de nascimento, opiniao, Menu->Menu)\
+Funcionario(\ul idFuncionario->Pessoa\ulnone , ordenado, periodo de contrato)\
+Menu(\ul idMenu\ulnone , numero, nome)\
+Evento(\ul idEvento\ulnone , nome, tema, custo, idSala->Sala)\
+Prato(\ul idPrato\ulnone , nome, preco, TipoPrato->TipoPrato)\
+\
+TipoPrato(\ul idTipoPrato\ulnone , nome)\
+MesaReserva(\ul idMesa\ulnone ->Mesa, \ul idReserva\ulnone ->Reserva)\
+SalaMesa(idSala->Sala, \ul idMesa\ulnone ->Mesa)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 MesaCliente1(\ul idMesa\ulnone ->Mesa, \ul idCliente\ulnone ->Cliente, conta)\
+MesaCliente2(\ul \ulc0 idMesa\ulnone ->Mesa, \ul idCliente\ulnone ->Cliente, conta)\
+MesaCliente3(\ul idMesa\ulnone ->Mesa, \ul idCliente\ulnone ->Cliente, conta)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+MenuPrato()\
+FuncionarioSala(,, responsavel)\
+ReservaCliente()}
