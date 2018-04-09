@@ -1,0 +1,93 @@
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS Sala;
+DROP TABLE IF EXISTS Mesa;
+DROP TABLE IF EXISTS Reserva;
+DROP TABLE IF EXISTS Evento;
+DROP TABLE IF EXISTS Funcionario;
+DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS Pessoa;
+DROP TABLE IF EXISTS Menu;
+DROP TABLE IF EXISTS Prato;
+DROP TABLE IF EXISTS TipoPrato;
+
+
+CREATE TABLE Sala (
+    idSala        INTEGER NOT NULL PRIMARY KEY,
+    Name          VARCHAR (100)  NOT NULL 
+);
+
+CREATE TABLE Mesa(
+    idMesa        INTEGER NOT NULL PRIMARY KEY,
+    Numero         INTEGER NOT NULL,
+    Lugares        INTEGER NOT NULL,
+    CONTA          FLOAT NOT NULL 
+    FOREIGN KEY (idMesa) REFERENCES SALA(idSala),
+
+);
+
+CREATE TABLE Reserva(
+    idReserva        INTEGER NOT NULL PRIMARY KEY, 
+    Data      DATE NOT NULL ,
+    Hora      TIME NOT NULL,
+    Numero pessoas  INTEGER NOT NULL,
+    FOREIGN KEY (idReserva) REFERENCES CLIENTE(idCliente),
+);
+
+CREATE TABLE Evento (
+    idEvento        INTEGER NOT NULL PRIMARY KEY, 
+   Name          VARCHAR (100) NOT NULL,
+    Tema          VARCHAR (20) NOT NULL ,
+    FOREIGN KEY (idEvento) REFERENCES SALA(idSala),
+    Custo FLOAT NOT NULL
+);
+
+/*CENAS DAS PESSOAS*/
+CREATE TABLE Funcionario(
+    idFuncionario INTEGER NOT NULL PRIMARY KEY,
+    Ordenado      FLOAT NOT NULL ,
+    Periodo de contrato FLOAT NOT NULL 
+    FOREIGN KEY (idFuncionario) REFERENCES PESSOA(idPessoa),
+    FOREIGN KEY (idFuncionario) REFERENCES MESA(idMesa),
+    FOREIGN KEY (idFuncionario) REFERENCES Sala(idSala),
+);
+
+CREATE TABLE Cliente(
+    idCliente        INTEGER NOT NULL PRIMARY KEY,
+    Data de nascimento      FLOAT NOT NULL , 
+    Opiniao VARCHAR(100) NOT NULL,
+    FOREIGN KEY (idCliente) REFERENCES PESSOA(idPessoa),
+ 
+);
+
+CREATE TABLE Pessoa (
+   idPessoa        INTEGER NOT NULL PRIMARY KEY,
+   Name VARCHAR(100) NOT NULL,
+   NIF  NUMBER(9,0) NOT NULL ,
+   Nacionalidade VARCHAR(20) NOT NULL 
+);
+
+
+CREATE TABLE Menu(
+    idMenu        INTEGER NOT NULL PRIMARY KEY,
+   Number         INTEGER NOT NULL , 
+   Name          VARCHAR (20)  NOT NULL,
+   FOREIGN KEY (idMenu) REFERENCES CLIENTE(idCliente),
+
+);
+
+CREATE TABLE Prato (
+    idPrato        INTEGER NOT NULL PRIMARY KEY, 
+   Name          VARCHAR (20) NOT NULL,
+    Preco FLOAT NOT NULL ,
+    FOREIGN KEY (idPrato) REFERENCES MENU(idMenu),
+
+);
+
+CREATE TABLE TipoPrato (
+    idTipoPrato        INTEGER NOT NULL PRIMARY KEY,
+    Name          VARCHAR (20) NOT NULL,
+    Preco FLOAT NOT NULL,
+    FOREIGN KEY (idTipoPrato) REFERENCES PRATO(idPrato),
+
+);
