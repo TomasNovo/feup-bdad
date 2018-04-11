@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.1.1 on ter abr 10 18:06:56 2018
+-- File generated with SQLiteStudio v3.1.1 on qua abr 11 08:48:21 2018
 --
 -- Text encoding used: System
 --
@@ -10,7 +10,7 @@ BEGIN TRANSACTION;
 CREATE TABLE Cliente (idCliente INTEGER NOT NULL PRIMARY KEY REFERENCES Pessoa (idPessoa), dataNascimento DATETIME NOT NULL, review INTEGER NOT NULL CHECK (review >= 0 and review <= 5));
 
 -- Table: ClienteMesaReservaMenu
-CREATE TABLE ClienteMesaReservaMenu (idReserva INTEGER REFERENCES Reserva (idReserva), idMesa INTEGER REFERENCES Mesa, idCliente INTEGER REFERENCES Cliente (idCliente), idMenu INTEGER REFERENCES Menu, conta DOUBLE, hora DATETIME NOT NULL, PRIMARY KEY (idReserva, idMesa, idCliente, idMenu));
+CREATE TABLE ClienteMesaReservaMenu (idReserva INTEGER REFERENCES Reserva (idReserva), idMesa INTEGER REFERENCES Mesa, idCliente INTEGER REFERENCES Cliente (idCliente), idMenu INTEGER REFERENCES Menu (idMenu), conta DOUBLE, hora DATETIME NOT NULL, PRIMARY KEY (idReserva, idMesa, idCliente, idMenu));
 
 -- Table: Evento
 CREATE TABLE Evento (idEvento INTEGER NOT NULL PRIMARY KEY, nome VARCHAR (100) NOT NULL, tema VARCHAR (20) NOT NULL, custo FLOAT NOT NULL, sala INTEGER REFERENCES Sala (idSala) NOT NULL);
@@ -19,7 +19,7 @@ CREATE TABLE Evento (idEvento INTEGER NOT NULL PRIMARY KEY, nome VARCHAR (100) N
 CREATE TABLE Funcionario (idFuncionario INTEGER NOT NULL PRIMARY KEY REFERENCES Pessoa (idPessoa), ordenado FLOAT NOT NULL CHECK (ordenado > 0), periodoContrato FLOAT NOT NULL CHECK (periodoContrato > 0));
 
 -- Table: Menu
-CREATE TABLE Menu (numero INTEGER NOT NULL PRIMARY KEY, nome VARCHAR (20) NOT NULL);
+CREATE TABLE Menu (idMenu INTEGER PRIMARY KEY, numero INTEGER NOT NULL UNIQUE, nome VARCHAR (20) NOT NULL);
 
 -- Table: MenuPrato
 CREATE TABLE MenuPrato (idMenu INTEGER REFERENCES Menu, idPrato INTEGER REFERENCES Prato (idPrato), PRIMARY KEY (idMenu, idPrato));
