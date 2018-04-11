@@ -11,7 +11,7 @@ Reserva(\ul idReserva\ulnone , data/hora, numeroPessoas)\
 Pessoa(\ul idPessoa\ulnone , nome, NIF, nacionalidade)\
 Cliente(\ul idCliente\ulnone ->Pessoa, data de nascimento, review)\
 Funcionario(\ul idFuncionario\ulnone ->Pessoa, ordenado, periodoContrato)\
-Menu(\ul numero\ulnone , nome)\
+Menu(\ul idMenu\ulnone, numero, nome)\
 Evento(\ul idEvento\ulnone , nome, tema, custo, idSala->Sala)\
 Prato(\ul idPrato\ulnone , nome, preco, TipoPrato->TipoPrato)\
 TipoPrato(\ul idTipoPrato\ulnone , nome)\
