@@ -3,12 +3,12 @@
 .headers	on
 .nullvalue	NULL
 
-select distinct Pessoa.nome, Prato.nome as nomePrato
-From Pessoa, Cliente, TipoPrato, Prato, ClienteMesaReservaMenu, Menu, MenuPrato
-Where Pessoa.idPessoa = Cliente.idCliente
-and Cliente.idCliente = ClienteMesaReservaMenu.idCliente
-and Menu.numero = ClienteMesaReservaMenu.idMenu
-and MenuPrato.idMenu = Menu.numero
-and MenuPrato.idPrato = Prato.idPrato
-and TipoPrato.idTipoPrato = Prato.tipo
-and TipoPrato.nome = 'Carne';
+SELECT DISTINCT Pessoa.nome, Prato.nome AS nomePrato
+FROM Pessoa, Cliente, TipoPrato, Prato, ClienteMesaReservaMenu, Menu, MenuPrato
+WHERE Pessoa.idPessoa = Cliente.idCliente
+AND Cliente.idCliente = ClienteMesaReservaMenu.idCliente
+AND Menu.numero = ClienteMesaReservaMenu.idMenu
+AND MenuPrato.idMenu = Menu.numero
+AND MenuPrato.idPrato = Prato.idPrato
+AND TipoPrato.idTipoPrato = Prato.tipo
+AND TipoPrato.nome = 'Carne';

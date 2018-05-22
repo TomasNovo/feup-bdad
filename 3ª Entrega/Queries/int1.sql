@@ -1,7 +1,7 @@
--- Custo total dos eventos
+-- Custo medio dos eventos de todas as salas
 .mode	columns
 .headers	on
 .nullvalue	NULL
 
-Select sum(custo) as CustoTotalEventos
-From Evento;
+SELECT avg(custo) AS CustoMedioEventos
+FROM Evento;

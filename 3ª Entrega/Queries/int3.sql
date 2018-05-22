@@ -1,8 +1,10 @@
--- Nome dos funcionários com ordenado inferior a 450€
+-- Listar os 4 funcionarios com melhor ordenado
 .mode	columns
 .headers	on
 .nullvalue	NULL
 
-Select nome, ordenado
-From Pessoa, Funcionario
-Where idPessoa = idFuncionario and ordenado < 450;
+SELECT nome, ordenado
+FROM Pessoa, Funcionario
+WHERE idPessoa = idFuncionario
+ORDER BY ordenado DESC
+LIMIT 4;
