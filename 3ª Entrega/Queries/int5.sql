@@ -1,4 +1,4 @@
--- Quais os clientes que pediram um prato de tipo Carne
+-- Listagem dos clientes que pediram um menu em que o prato é do tipo Carne
 .mode	columns
 .headers	on
 .nullvalue	NULL

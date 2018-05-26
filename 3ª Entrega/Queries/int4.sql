@@ -1,4 +1,4 @@
--- Clientes com menos de 40 anos, ordenados por idade
+-- Listagem ordenada dos clientes com menos de 40 anos
 .mode	columns
 .headers	on
 .nullvalue	NULL

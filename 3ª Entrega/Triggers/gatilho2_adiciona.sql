@@ -1,8 +1,8 @@
--- Garante que no máximo existem apenas 4 salas
+-- Garante que existem no máximo 4 salas
 
 CREATE TRIGGER IF NOT EXISTS t2
-AFTER INSERT on Sala
-WHEN (SELECT count(*) from Sala) > 4
+AFTER INSERT ON Sala
+WHEN (SELECT count(*) FROM Sala) > 4
 BEGIN
     DELETE FROM Sala WHERE idSala = New.idSala;
     DELETE FROM Evento WHERE sala = New.idSala;

@@ -4,4 +4,4 @@ INSERT INTO Sala (idSala, nome, responsavel) VALUES (6, 'Tommy', 19);
 
 SELECT *
 FROM Sala;
-.print Nao adiciona sala "Tommy"
+.print Nao adiciona sala "Tommy" nem "Magnum"

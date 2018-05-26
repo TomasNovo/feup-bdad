@@ -19,5 +19,5 @@ SELECT * FROM MenuPrato WHERE idMenu = 1;
 DELETE FROM MenuPrato
 WHERE idMenu = 1 AND idPrato = 11;
 
-.print \nRemovido Prato 11
+.print \nPrato 11 nao removido
 SELECT * FROM MenuPrato WHERE idMenu = 1;

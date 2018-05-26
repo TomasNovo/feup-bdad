@@ -1,16 +1,16 @@
--- Nome dos clientes e do funcionário responsável pelo cliente e quando
+-- Nomes dos clientes e do funcionário responsável por cada um dos clientes e a data do atendimento
 .mode	columns
 .headers	on
 .nullvalue	NULL
 
-SELECT DISTINCT Pessoa.nome as Nome_Cliente,
+SELECT DISTINCT Pessoa.nome AS Nome_Cliente,
                 Funcionario_Responsavel,
-                strftime('%Y-%m-%d', Reserva.dataHora) as Dia
+                strftime('%Y-%m-%d', Reserva.dataHora) AS Dia
 FROM Pessoa, Cliente, ClienteMesaReservaMenu, Reserva,
-    (SELECT Mesa.numero as Numero_Mesa, Pessoa.nome as Funcionario_Responsavel
+    (SELECT Mesa.numero AS Numero_Mesa, Pessoa.nome AS Funcionario_Responsavel
     FROM Mesa, Pessoa, Funcionario
     WHERE Pessoa.idPessoa = Funcionario.idFuncionario
-    and Mesa.Empregado = Funcionario.idFuncionario) as A
+    AND Mesa.Empregado = Funcionario.idFuncionario) AS A
 WHERE Pessoa.idPessoa = Cliente.idCliente
 AND ClienteMesaReservaMenu.idCliente = Cliente.idCliente
 AND ClienteMesaReservaMenu.idReserva = Reserva.idReserva

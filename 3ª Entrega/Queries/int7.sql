@@ -1,13 +1,13 @@
--- Nomes dos clientes, número da reserva e número da mesa em que as reservas são de data superior a 2018-09-10. Ordenado pela data
+-- Listagem dos clientes, número de reserva e número da mesa tendo como critério uma limitação nas datas das reservas
 .mode	columns
 .headers	on
 .nullvalue	NULL
 
-Select nome, Reserva.idReserva, numero, Reserva.dataHora
-From Pessoa, Cliente, Mesa, ClienteMesaReservaMenu, Reserva
-Where Pessoa.idPessoa = Cliente.idCliente 
-and ClienteMesaReservaMenu.idCliente = Cliente.idCliente
-and ClienteMesaReservaMenu.idMesa = Mesa.numero
-and ClienteMesaReservaMenu.idReserva = Reserva.idReserva
-and Reserva.dataHora > '2018-09-10'
-Order by Reserva.dataHora;
+SELECT nome, Reserva.idReserva, numero, Reserva.dataHora
+FROM Pessoa, Cliente, Mesa, ClienteMesaReservaMenu, Reserva
+WHERE Pessoa.idPessoa = Cliente.idCliente 
+AND ClienteMesaReservaMenu.idCliente = Cliente.idCliente
+AND ClienteMesaReservaMenu.idMesa = Mesa.numero
+AND ClienteMesaReservaMenu.idReserva = Reserva.idReserva
+AND Reserva.dataHora BETWEEN '2018-06-14' AND '2018-11-30'
+ORDER BY Reserva.dataHora;

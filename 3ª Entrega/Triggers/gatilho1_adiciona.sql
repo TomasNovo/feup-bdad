@@ -1,9 +1,9 @@
--- Garante que nao ha 2 pessoas com o mesmo id
+-- Garante que não há 2 pessoas com o mesmo id
 
 CREATE TRIGGER IF NOT EXISTS t1
-BEFORE INSERT on Pessoa
-WHEN exists (SELECT * from Pessoa
+BEFORE INSERT ON Pessoa
+WHEN exists (SELECT * FROM Pessoa
             WHERE Pessoa.idPessoa = New.idPessoa)
 BEGIN
-    SELECT RAISE(abort, 'erro');
+    SELECT RAISE(ABORT, 'erro');
 END;

@@ -1,4 +1,4 @@
--- Listar os 4 funcionarios com melhor ordenado
+-- Nomes dos 4 funcionários com melhor ordenado
 .mode	columns
 .headers	on
 .nullvalue	NULL

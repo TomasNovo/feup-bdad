@@ -1,4 +1,4 @@
--- Custo medio dos eventos de todas as salas
+-- Custo médio dos eventos realizados nas salas
 .mode	columns
 .headers	on
 .nullvalue	NULL

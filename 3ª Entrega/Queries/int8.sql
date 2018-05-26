@@ -1,10 +1,9 @@
--- Conta de cada mesa por dia
+-- Conta total de cada mesa por dia
 .mode	columns
 .headers	on
 .nullvalue	NULL
 
-
-SELECT Mesa.numero AS numeroMesa, sum(precoMenu) AS contaMesa, Reserva.dataHora as Dia
+SELECT Mesa.numero AS numeroMesa, sum(precoMenu) AS contaMesa, Reserva.dataHora AS Dia
 FROM Mesa, ClienteMesaReservaMenu, Reserva,
     (SELECT Menu.numero, sum(Prato.preco) AS precoMenu
      FROM Menu, MenuPrato, Prato
